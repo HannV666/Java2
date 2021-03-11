@@ -1,16 +1,3 @@
-/*
-1) Класс Credit
-Создать класс кредита, который принимает следующую информацию: название кредита,
-ставка, срок погашения, штрафные санкции есть или нет.
-1) Создать массив объектов этого класса
-2) Создать 2 конструктора, один принимает все аргументы, второй - 2 аргумента (на ваш выбор).
-Один из конструкторов должен вызывать другой конструктор
-3) Геттеры/сеттеры
-4) создать метод для вывода информации на экран
-*/
-
-import java.sql.SQLOutput;
-
 public class Credit {
     private String name;
     private double percent;
@@ -61,7 +48,7 @@ public class Credit {
     }
 
     public static void main(String[] args) {
-        Credit cr[] = new Credit[4];
+        Credit []cr = new Credit[4];
         cr[0] = new Credit(1,true);
         cr[1] = new Credit("cr1",3.2,3,false);
         cr[2] = new Credit("cr2", 7.4,23,true);

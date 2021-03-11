@@ -1,26 +1,11 @@
-/*
-2) Класс Laptop.
-1) Создайте класс Laptop, который содержит переменные MacAddress, Model, Weight, ProcessorType, OS. ******#####
-2) Создайте 3 объекта этого класса. *******#########
-3) Выведите на консоль характерестики.
-4) Добавить в класс Laptop методы: showNotePad(), имеет один параметр – имя файла. Выводит на консоль сообщение
- “Content of {name} file”. Создать геттеры и сеттеры для каждого поля. Вызвать эти методы для каждого из объектов.
-5) Добавить конструктор в класс Laptop, который принимает на вход три параметра для инициализации переменных класса -
-macAdress, model и os. ************##########
-6) Добавить конструктор, который принимает на вход два параметра для инициализации переменных класса -
-weight, processorType. ****************#############
-7) Добавить конструктор без параметров. *************##############
-8) Добавьте перегруженный метод showNotePad(), который принимает два параметра - имя файла и
-количество строк кода в нем. Вызвать этот метод.*/
-
 public class Laptop {
-    private int macAddress;
+    private String macAddress;
     private String model;
     private double weight;
     private String processorType;
     private String os;
 
-    private Laptop(int macAddress, String model, String os){
+    private Laptop(String macAddress, String model, String os){
         this.macAddress = macAddress;
         this.model = model;
         this.os = os;
@@ -31,10 +16,10 @@ public class Laptop {
     }
     private Laptop() {
     }
-    public int getMacAddress() {
+    public String getMacAddress() {
         return macAddress;
     }
-    public void setMacAddress(int macAddress) {
+    public void setMacAddress(String macAddress) {
         this.macAddress = macAddress;
     }
 
@@ -75,28 +60,28 @@ public class Laptop {
     }
     public static void main(String[] args) {
         Laptop l1 = new Laptop();
-        Laptop l2 = new Laptop(1, "qwe","lkcml");
-        Laptop l3 = new Laptop(32.32,"wjc" );
+        Laptop l2 = new Laptop("00:37:59:00:6f:62", "Lenovo","Microsoft Windows");
+        Laptop l3 = new Laptop(2.32,"AMD" );
 
-        l1.setMacAddress(1);
-        l2.setMacAddress(2);
-        l3.setMacAddress(3);
+        l1.setMacAddress("00:26:57:00:1f:02");
+        l2.setMacAddress("00:95:32:00:4f:07");
+        l3.setMacAddress("00:84:05:00:3f:10");
 
-        l1.setModel("l1");
-        l2.setModel("l2");
-        l3.setModel("l3");
+        l1.setModel("Apple");
+        l2.setModel("HP");
+        l3.setModel("ASUS");
 
-        l1.setWeight(32.53);
+        l1.setWeight(3.53);
         l2.setWeight(2.5);
         l3.setWeight(3.3);
 
-        l1.setProcessorType("1-1");
-        l2.setProcessorType("2-2");
-        l3.setProcessorType("3-3");
+        l1.setProcessorType("Intel");
+        l2.setProcessorType("AMD");
+        l3.setProcessorType("Intel");
 
-        l1.setOs("w1");
-        l2.setOs("w2");
-        l3.setOs("w3");
+        l1.setOs("Linux");
+        l2.setOs("Microsoft Windows");
+        l3.setOs("UNIX");
 
         System.out.println("MacAddress  " + l1.getMacAddress());
         System.out.println("Model  " + l1.getModel());

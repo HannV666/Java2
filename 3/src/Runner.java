@@ -27,18 +27,24 @@ public class Runner {
     private int allweeks;
     private int students;
 
+    public Runner (double payment, double coefficient, int allweeks, int students){
+        this.payment = payment;
+        this.coefficient = coefficient;
+        this.allweeks = allweeks;
+        this.students = students;
+    }
     /*просрочит сдачу одной темы на T недель*/
     public double calculator1(int t){
         return (payment * (allweeks-1) + (payment*(Math.pow((1 + coefficient), t))));
     }
     /*просрочит сдачу N из M тем на Y недель каждая*/
     public double calculator2(int n, int m, int y){
-        return (payment * (m-n)) + Math.pow(payment*(Math.pow((1 + coefficient), y)), n);
+        return (payment * (m-n)) + payment*n*Math.pow((1 + coefficient), y);
     }
     /*не выполнит ни одной темы на T недель*/
     public double calculator3(int t){
         double prosr= payment*(allweeks-t);
-        for (int i = t; i<=t; i++) {
+        for (int i = 1; i<=t; i++) {
             prosr += payment * Math.pow((1 + coefficient), i);
         }
         return prosr;
@@ -52,13 +58,12 @@ public class Runner {
     public double calculator5(int amount, int time, int q){
         return allweeks*payment*(students-amount)+payment*amount* ((allweeks-time)+q*(Math.pow((1 + coefficient), time)));
     }
-
-
-
-
-
-
     public static void main(String[] args) {
-
+        Runner salary = new Runner(10, 0.05, 5, 10);
+        System.out.println("Salary: task 1-1: " + salary.calculator1(5));
+        System.out.println("Salary: task 1-2: " + salary.calculator2(4,5,3));
+        System.out.println("Salary: task 1-3: " + salary.calculator3(5));
+        System.out.println("Salary: task 1-4: " + salary.calculator4(5));
+        System.out.println("Salary: task 2: " + salary.calculator5(9, 4, 5));
     }
 }
